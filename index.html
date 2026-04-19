@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Leaders Group — J.P. Morgan Private Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm-black: #1a1814;
+  --warm-ink: #2a2620;
+  --warm-600: #6b6459;
+  --warm-400: #9a9287;
+  --warm-200: #d8d2c5;
+  --warm-100: #ebe6db;
+  --warm-50: #f5f1e8;
+  --warm-25: #faf7f0;
+  --paper: #f8f4ea;
+  --card: #ffffff;
+  --bronze: #8a6d3b;
+  --bronze-dark: #6b5329;
+  --mint: #b9dfc9;
+  --mint-deep: #7fb899;
+  --mint-ink: #2d5a42;
+  --rule: #e4dfd2;
+  --rule-strong: #c9c2b1;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --ui: 'Inter', -apple-system, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ui);
+  background: var(--paper);
+  color: var(--warm-black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+.container { max-width: 1360px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 720px) { .container { padding: 0 20px; } }
+.eyebrow {
+  font-family: var(--ui); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-600);
+}
+h1,h2,h3,h4 { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; line-height: 1.08; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: #fff; border-bottom: 1px solid var(--rule);
+}
+nav .inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px; max-width: 1360px; margin: 0 auto; padding: 0 48px;
+}
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand .mark { font-family: var(--display); font-size: 26px; font-weight: 500; color: var(--warm-black); }
+.brand .mark .dot { color: var(--bronze); }
+.brand .tag { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bronze); }
+.nav-links { display: flex; gap: 36px; }
+.nav-links a { font-size: 14px; color: var(--warm-black); text-decoration: none; position: relative; padding: 6px 0; }
+.nav-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -24px; height: 2px; background: var(--warm-black); transform: scaleX(0); transition: transform 0.25s ease; }
+.nav-links a:hover::after { transform: scaleX(1); }
+.btn {
+  font-family: var(--ui); font-size: 13px; font-weight: 500;
+  padding: 10px 18px; border-radius: 2px; cursor: pointer;
+  transition: all 0.2s ease; border: 1px solid transparent;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-solid { background: var(--warm-black); color: #fff; border-color: var(--warm-black); }
+.btn-solid:hover { background: var(--bronze); border-color: var(--bronze); }
+@media (max-width: 980px) { .nav-links { display: none; } }
+@media (max-width: 720px) { nav .inner { padding: 0 20px; } }
+
+/* HERO */
+.hero { padding: 80px 0 96px; background: #fff; }
+.hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; }
+.hero-eyebrow { grid-column: 1 / 3; padding-top: 8px; }
+.hero-eyebrow .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--mint-deep); margin-right: 8px; vertical-align: middle; }
+.hero-headline { grid-column: 3 / 12; font-size: clamp(42px, 6vw, 84px); line-height: 1.04; letter-spacing: -0.025em; }
+.hero-headline em { font-style: italic; color: var(--bronze); }
+.hero-sub { grid-column: 3 / 9; margin-top: 40px; font-size: 18px; line-height: 1.55; color: var(--warm-600); }
+.hero-meta { grid-column: 10 / 13; margin-top: 40px; border-left: 1px solid var(--rule-strong); padding-left: 20px; }
+.hero-meta .k { font-family: var(--mono); font-size: 11px; color: var(--warm-600); letter-spacing: 0.08em; text-transform: uppercase; }
+.hero-meta .v { font-family: var(--display); font-size: 22px; margin-top: 4px; }
+.hero-meta .v + .k { margin-top: 18px; }
+@media (max-width: 720px) {
+  .hero { padding: 56px 0 64px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-eyebrow, .hero-headline, .hero-sub, .hero-meta { grid-column: 1 / -1; }
+  .hero-meta { border-left: none; border-top: 1px solid var(--rule-strong); padding-left: 0; padding-top: 20px; margin-top: 32px; }
+}
+
+/* BRIDGE */
+.bridge {
+  background: var(--paper); padding: 100px 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.bridge-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.bridge-headline { grid-column: 1 / 7; font-size: clamp(28px, 3.5vw, 44px); line-height: 1.15; }
+.bridge-headline em { color: var(--bronze); font-style: italic; }
+.bridge-proof { grid-column: 7 / 13; display: flex; flex-direction: column; gap: 24px; padding-top: 8px; }
+.bridge-proof-item { padding-left: 20px; border-left: 2px solid var(--rule-strong); }
+.bridge-proof-item .proof-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 6px; }
+.bridge-proof-item p { font-size: 14.5px; line-height: 1.6; color: var(--warm-600); }
+@media (max-width: 980px) { .bridge-headline, .bridge-proof { grid-column: 1 / -1; } }
+@media (max-width: 720px) { .bridge { padding: 64px 0; } }
+
+/* PAIN POINTS */
+.pain { background: var(--warm-black); color: var(--warm-50); padding: 120px 0; }
+.pain-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 72px; }
+.pain-head .eyebrow { grid-column: 1 / 3; color: var(--mint); padding-top: 12px; }
+.pain-head h2 { grid-column: 3 / 11; font-size: clamp(32px, 4vw, 56px); }
+.pain-head h2 em { color: var(--mint); font-style: italic; }
+.struggles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.struggle { border-top: 1px solid rgba(255,255,255,0.14); padding-top: 28px; }
+.struggle .n { font-family: var(--mono); font-size: 11px; color: var(--mint); letter-spacing: 0.12em; }
+.struggle h3 { font-size: 26px; margin: 16px 0 14px; line-height: 1.15; }
+.struggle p { font-size: 14.5px; line-height: 1.65; color: var(--warm-200); margin-bottom: 12px; }
+@media (max-width: 980px) {
+  .pain { padding: 80px 0; }
+  .pain-head { grid-template-columns: 1fr; }
+  .pain-head .eyebrow, .pain-head h2 { grid-column: 1 / -1; }
+  .struggles { grid-template-columns: 1fr; }
+}
+
+
+/* PILLARS */
+.pillars { padding: 120px 0 80px; background: #fff; }
+.pillars-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 64px; }
+.pillars-head .eyebrow { grid-column: 1 / 3; padding-top: 10px; }
+.pillars-head h2 { grid-column: 3 / 9; font-size: clamp(32px, 4vw, 56px); }
+.pillars-head h2 em { font-style: italic; color: var(--bronze); }
+.pillar-list { border-top: 1px solid var(--rule-strong); }
+.pillar-item { border-bottom: 1px solid var(--rule); padding: 36px 0; display: grid; grid-template-columns: 60px 1fr; gap: 24px; }
+.pillar-item .idx { font-family: var(--mono); font-size: 12px; color: var(--warm-600); padding-top: 6px; }
+.pillar-item h3 { font-size: clamp(24px, 2.5vw, 36px); line-height: 1.1; margin-bottom: 16px; }
+.pillar-item p { font-size: 15px; line-height: 1.65; color: var(--warm-600); margin-bottom: 10px; }
+.pillar-item .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.pillar-item .tag-pill { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; padding: 4px 10px; border: 1px solid var(--rule-strong); border-radius: 100px; color: var(--warm-600); text-transform: uppercase; }
+@media (max-width: 980px) {
+  .pillars { padding: 80px 0 60px; }
+  .pillars-head { grid-template-columns: 1fr; }
+  .pillars-head .eyebrow, .pillars-head h2, .pillars-head .lede { grid-column: 1 / -1; }
+  .pillar-item { grid-template-columns: 1fr; }
+}
+
+/* CASE STUDIES */
+.cases { padding: 120px 0; background: var(--warm-black); color: var(--warm-50); }
+.cases-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 64px; }
+.cases-head .eyebrow { grid-column: 1 / 3; color: var(--mint); padding-top: 10px; }
+.cases-head h2 { grid-column: 3 / 10; font-size: clamp(32px, 4vw, 52px); }
+.cases-head h2 em { color: var(--mint); font-style: italic; }
+.case-list { max-width: 900px; }
+.case-card { display: grid; grid-template-columns: 120px 1fr; gap: 32px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.12); }
+.case-card:last-child { padding-bottom: 0; }
+.case-card .case-left { }
+.case-card .case-label { font-family: var(--mono); font-size: 10.5px; color: var(--mint); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+.case-card .figure { font-family: var(--display); font-size: 42px; color: var(--mint); line-height: 1; }
+.case-card p { font-size: 15px; line-height: 1.7; color: var(--warm-200); margin-bottom: 10px; }
+.case-card p:last-child { margin-bottom: 0; }
+@media (max-width: 980px) { .cases { padding: 80px 0; } .case-card { grid-template-columns: 1fr; gap: 16px; } .cases-head { grid-template-columns: 1fr; } .cases-head .eyebrow, .cases-head h2 { grid-column: 1 / -1; } }
+
+/* TEAM */
+.team { padding: 120px 0; background: #fff; }
+.team-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 56px; }
+.team-head .eyebrow { grid-column: 1 / 3; padding-top: 10px; }
+.team-head h2 { grid-column: 3 / 9; font-size: clamp(32px, 4vw, 56px); }
+.team-head h2 em { font-style: italic; color: var(--bronze); }
+.team-intro { grid-column: 3 / 10; font-size: 16px; line-height: 1.6; color: var(--warm-600); margin-bottom: 48px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.team-card .photo { aspect-ratio: 4/5; background: #ede8df; margin-bottom: 20px; position: relative; overflow: hidden; }
+.team-card .photo .initials { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 48px; color: var(--warm-400); }
+.team-card .name { font-family: var(--display); font-size: 22px; line-height: 1.15; }
+.team-card .role { margin-top: 6px; font-size: 13px; color: var(--warm-600); line-height: 1.5; }
+.team-card .detail { margin-top: 10px; font-size: 13px; color: var(--warm-400); line-height: 1.5; font-style: italic; }
+@media (max-width: 980px) { .team { padding: 80px 0; } .team-head { grid-template-columns: 1fr; } .team-head .eyebrow, .team-head h2 { grid-column: 1 / -1; } .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .team-grid { grid-template-columns: 1fr; } }
+
+/* INSIGHTS */
+.insights { padding: 120px 0; background: var(--warm-25); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.insights-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; margin-bottom: 56px; }
+.insights-head .eyebrow { grid-column: 1 / 3; padding-top: 10px; }
+.insights-head h2 { grid-column: 3 / 10; font-size: clamp(28px, 3.5vw, 48px); }
+.insights-head h2 em { font-style: italic; color: var(--bronze); }
+.insights-head .link { grid-column: 11 / 13; align-self: end; text-align: right; }
+.insights-head .link a { font-size: 14px; color: var(--warm-black); text-decoration: none; border-bottom: 1px solid var(--warm-black); padding-bottom: 2px; }
+.insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.insight-card { background: var(--card); border: 1px solid var(--rule); padding: 32px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.insight-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.insight-card .i-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 16px; }
+.insight-card h4 { font-size: 22px; line-height: 1.25; margin-bottom: 14px; }
+.insight-card p { font-size: 14px; line-height: 1.6; color: var(--warm-600); }
+.insight-card .time { margin-top: 20px; font-family: var(--mono); font-size: 11px; color: var(--warm-400); letter-spacing: 0.06em; }
+@media (max-width: 980px) { .insights { padding: 80px 0; } .insight-grid { grid-template-columns: 1fr; } .insights-head { grid-template-columns: 1fr; } .insights-head .eyebrow, .insights-head h2, .insights-head .link { grid-column: 1 / -1; text-align: left; } }
+
+/* CTA */
+.cta-section { background: var(--warm-black); color: var(--warm-50); padding: 120px 0; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(185,223,201,0.06), transparent 60%); }
+.cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; position: relative; }
+.cta-left h2 { font-size: clamp(36px, 4vw, 56px); line-height: 1.08; margin-bottom: 28px; }
+.cta-left h2 em { font-style: italic; color: var(--mint); }
+.cta-left p { font-size: 16px; line-height: 1.65; color: var(--warm-200); margin-bottom: 16px; }
+.cta-left .response { margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; }
+.cta-left .response .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 8px; }
+.cta-left .response .v { font-size: 15px; color: var(--warm-200); }
+.cta-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 40px; }
+.cta-form .field { margin-bottom: 20px; }
+.cta-form label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-400); margin-bottom: 8px; }
+.cta-form input, .cta-form select, .cta-form textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: var(--warm-50); font-family: var(--ui); font-size: 15px; padding: 8px 0;
+  outline: none; transition: border-color 0.2s ease;
+}
+.cta-form input:focus, .cta-form select:focus, .cta-form textarea:focus { border-color: var(--mint); }
+.cta-form select { -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%239a9287' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0 center; }
+.cta-form select option { background: var(--warm-black); color: var(--warm-50); }
+.cta-form textarea { resize: vertical; min-height: 60px; }
+.cta-form .submit { margin-top: 28px; }
+.cta-form .submit .btn { width: 100%; justify-content: center; padding: 16px; font-size: 14px; background: var(--mint); color: var(--mint-ink); border-color: var(--mint); }
+.cta-form .submit .btn:hover { background: var(--mint-deep); color: #fff; }
+@media (max-width: 980px) { .cta-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* FOOTER */
+footer { padding: 80px 0 40px; background: var(--warm-black); color: var(--warm-400); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 64px; }
+.footer-brand .mark { font-family: var(--display); font-size: 24px; color: var(--warm-50); }
+.footer-brand .mark .dot { color: var(--bronze); }
+.footer-brand .tagline { font-size: 14px; color: var(--warm-400); margin-top: 12px; line-height: 1.5; max-width: 320px; }
+footer h5 { font-family: var(--ui); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-200); margin-bottom: 16px; }
+footer ul { list-style: none; }
+footer li { margin-bottom: 10px; }
+footer li a { font-size: 14px; color: var(--warm-400); text-decoration: none; transition: color 0.2s; }
+footer li a:hover { color: var(--warm-50); }
+.footer-legal { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+.footer-legal a { color: var(--warm-400); text-decoration: none; margin-left: 20px; }
+@media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+/* SCROLL ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a href="#" class="brand">
+      <span class="mark">J<span class="dot">.</span>P<span class="dot">.</span> Morgan</span>
+      <span class="tag">Private Bank</span>
+    </a>
+    <div class="nav-links">
+      <a href="#pillars">What We Do</a>
+      <a href="#team">Who We Serve</a>
+      <a href="#insights">Insights & Advice</a>
+      <a href="#cta">About Us</a>
+    </div>
+    <a href="#cta" class="btn btn-solid">Request an introduction</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-eyebrow">
+        <span class="eyebrow"><span class="dot"></span> Financial Leaders Group</span>
+      </div>
+      <h1 class="hero-headline">
+        Your fund is your <em>life's work.</em><br>Your personal balance sheet shouldn't be an afterthought.
+      </h1>
+      <div class="hero-sub">
+        The Financial Leaders Group serves PE principals, hedge fund managers, and venture capital founders across Asia Pacific. We work with fund economics directly. Carry structures, GP commitments, concentrated stakes, and the liquidity gaps between them. This is a dedicated practice built around how fund principals actually earn, hold, and deploy capital.
+      </div>
+      <div class="hero-meta">
+        <div class="k">Partners served</div>
+        <div class="v">950+</div>
+        <div class="k">Fund relationships</div>
+        <div class="v">200+</div>
+        <div class="k">Assets under supervision</div>
+        <div class="v">$140B+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE -->
+<section class="bridge">
+  <div class="container">
+    <div class="bridge-grid">
+      <h2 class="bridge-headline reveal">The problems are familiar. The solutions <em>never are.</em></h2>
+      <div class="bridge-proof reveal">
+        <div class="bridge-proof-item">
+          <div class="proof-label">Capital calls</div>
+          <p>Structured capital calls for GPs launching Fund V with draw schedules synchronized to fund deployment timelines.</p>
+        </div>
+        <div class="bridge-proof-item">
+          <div class="proof-label">Concentrated positions</div>
+          <p>Unwound single-stock positions for founders three days before an IPO lockup expired.</p>
+        </div>
+        <div class="bridge-proof-item">
+          <div class="proof-label">Cross-border structuring</div>
+          <p>Established trusts for families split across three jurisdictions mid-fundraise while building diversified portfolios around GP stakes compliance would not let the principal touch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container">
+    <div class="pain-head">
+      <span class="eyebrow" style="grid-column: 1/3; color: var(--mint);">The reality</span>
+      <h2 style="grid-column: 3/11;">What keeps fund principals <em>up at night</em></h2>
+    </div>
+    <div class="struggles">
+      <div class="struggle reveal">
+        <div class="n">01 / Liquidity</div>
+        <h3>Most of what you are worth, you cannot spend.</h3>
+        <p>GP commitments. Carry. Founder equity. LP positions that mark once a quarter and settle once a decade. The statement is long. The account you can wire from is short.</p>
+        <p>Financial planning tools built for salaried executives do not account for J-curve timing, clawback risk, or the difference between a $30M carry estimate and a $9M after-tax distribution four years from now.</p>
+      </div>
+      <div class="struggle reveal">
+        <div class="n">02 / Concentration</div>
+        <h3>Everyone close to you is paid by the thing you need to diversify.</h3>
+        <p>You built the fund. You raised the capital. You sit on the IC. The asset you know best is also the asset that dominates your personal exposure. Traditional diversification advice assumes you can sell. You cannot.</p>
+        <p>The question is how to build a balance sheet around a position you are required to hold.</p>
+      </div>
+      <div class="struggle reveal">
+        <div class="n">03 / Velocity</div>
+        <h3>You went from carried interest on paper to eight figures in a single distribution.</h3>
+        <p>The plan is still a draft. Fund II returned 2.8x. Fund III is tracking above that. In five years you went from a mid-seven-figure net worth to something that requires institutional-grade structuring.</p>
+        <p>Estate documents are outdated. The holding company was set up for tax efficiency in a jurisdiction that has since changed its rules. Cash is sitting in a current account because the last three months were consumed by fundraising.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="pillars-head">
+      <span class="eyebrow" style="grid-column: 1/3;">How we solve it</span>
+      <h2 style="grid-column: 3/9;">Reweighted for the <em>way</em> you actually live.</h2>
+    </div>
+    <div class="pillar-list">
+      <div class="pillar-item reveal">
+        <div class="idx">01</div>
+        <div>
+          <h3>Liquidity & Lending</h3>
+          <p>Capital call lines, GP commitment financing, and credit facilities secured against LP interests, carry receivables, or concentrated public equity. We lend against fund economics that most banks will not underwrite because they lack portfolio-level visibility.</p>
+          <p>Facilities are structured with draw schedules that match fund deployment timelines, not arbitrary annual reviews.</p>
+          <div class="tags">
+            <span class="tag-pill">Capital call lines</span>
+            <span class="tag-pill">GP financing</span>
+            <span class="tag-pill">Securities-backed</span>
+            <span class="tag-pill">Aircraft & Art</span>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-item reveal">
+        <div class="idx">02</div>
+        <div>
+          <h3>Investments</h3>
+          <p>You run a portfolio for a living. The last thing you need is another CIO telling you what to own. We build around your existing exposure, fill the gaps, and execute.</p>
+          <p>If your fund is long Asia mid-cap technology, your personal portfolio should not replicate that risk. We construct allocations across direct lending, real assets, structured notes, and public markets specifically to offset the sector, geography, and vintage concentration embedded in your GP stake.</p>
+          <p>Co-investment access across the J.P. Morgan platform for principals building a personal direct book alongside their fund activity.</p>
+          <div class="tags">
+            <span class="tag-pill">Asset allocation</span>
+            <span class="tag-pill">Co-investment</span>
+            <span class="tag-pill">Risk hedging</span>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-item reveal">
+        <div class="idx">03</div>
+        <div>
+          <h3>Wealth Planning</h3>
+          <p>Multi-jurisdictional structuring for principals who hold carry in a Cayman vehicle, reside in Singapore, maintain family in Australia, and plan to relocate within five years. Trust structures, family investment companies, and cross-border estate plans.</p>
+          <p>Tax structuring, withholding optimization, and FATCA/CRS compliance coordination across every entity you touch. The focus is on irrevocable decisions: gifting strategies timed to valuation events, pre-IPO transfers, and the tax elections that must be made before a liquidity event, not after.</p>
+          <div class="tags">
+            <span class="tag-pill">Cross-border</span>
+            <span class="tag-pill">Carried interest</span>
+            <span class="tag-pill">Tax structuring</span>
+            <span class="tag-pill">FATCA/CRS</span>
+          </div>
+        </div>
+      </div>
+      <div class="pillar-item reveal">
+        <div class="idx">04</div>
+        <div>
+          <h3>Banking</h3>
+          <p>Operating accounts, treasury management, and foreign exchange execution for the personal side and the GP entity. Multi-currency accounts across USD, SGD, HKD, AUD, and CNH with same-day internal transfers.</p>
+          <p>Mortgage financing underwritten against total wealth rather than declared income alone.</p>
+          <div class="tags">
+            <span class="tag-pill">Multi-currency</span>
+            <span class="tag-pill">Treasury</span>
+            <span class="tag-pill">Mortgages</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases">
+  <div class="container">
+    <div class="cases-head">
+      <span class="eyebrow" style="grid-column: 1/3; color: var(--mint);">Anonymized outcomes</span>
+      <h2 style="grid-column: 3/10;">Three real <em>situations.</em></h2>
+    </div>
+    <div class="case-list">
+      <div class="case-card reveal">
+        <div class="case-left">
+          <div class="figure">$35M</div>
+        </div>
+        <div>
+          <div class="case-label">Case 01 · PE Principal, Singapore</div>
+          <p>A founding partner of a $4B Asia buyout fund needed to meet a $28M GP commitment to Fund IV. The timing overlapped with a residential purchase in Hong Kong. Selling existing fund positions was not an option.</p>
+          <p>We structured a $35M credit facility secured against LP interests in Funds II and III, timed to match the Fund IV capital call sequence. The facility was in place within 22 days.</p>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-left">
+          <div class="figure">$38M</div>
+        </div>
+        <div>
+          <div class="case-label">Case 02 · Hedge Fund Manager, Hong Kong</div>
+          <p>A portfolio manager with $110M in personal net worth held 70% in a single fund vehicle. No estate plan covered assets in three jurisdictions.</p>
+          <p>We built a $38M diversified portfolio across investment-grade credit, direct real estate co-investments, and a structured note program. Separately, the wealth planning team established a family trust in New Zealand, consolidating the Hong Kong, UK, and Australian holdings under one structure.</p>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-left">
+          <div class="figure">$45M</div>
+        </div>
+        <div>
+          <div class="case-label">Case 03 · VC Founder, Southeast Asia</div>
+          <p>A founding GP received a $45M distribution following a portfolio company's Nasdaq listing. The proceeds arrived in Q4, creating a compressed window for tax-efficient deployment.</p>
+          <p>We executed a pre-year-end strategy: $12M into a donor-advised fund, $18M into a diversified portfolio with a 60-day funding commitment, and $15M into a revolving credit facility that preserved optionality for a co-investment the GP was evaluating in Q1.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team-head">
+      <span class="eyebrow" style="grid-column: 1/3;">Your team</span>
+      <h2 style="grid-column: 3/9;">The Financial <em>Leaders Group</em></h2>
+    </div>
+    <p class="team-intro" style="max-width: 680px;">Every Financial Leaders Group client in Asia Pacific works with a named team. The senior banker on your account has direct authority over credit decisions, investment allocations, and planning engagement. You will meet them before you sign anything.</p>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="photo"><div class="initials">SJ</div></div>
+        <div class="name">Shai Joory</div>
+        <div class="role">Managing Director, Head of Financial Leaders Group, North Asia</div>
+        <div class="detail">18 years structuring wealth solutions for alternative asset managers across the region.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="photo"><div class="initials">AM</div></div>
+        <div class="name">Ameen Moon</div>
+        <div class="role">Managing Director, Head of Financial Leaders Group, Southeast Asia</div>
+        <div class="detail">Covers hedge fund managers and systematic trading firms across Greater China.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="photo"><div class="initials">PK</div></div>
+        <div class="name">Paul Knox</div>
+        <div class="role">Managing Director, Senior Wealth Advisor</div>
+        <div class="detail">Works with PE principals and real estate fund managers across Southeast Asia and Australia.</div>
+      </div>
+      <div class="team-card reveal">
+        <div class="photo"><div class="initials">CZ</div></div>
+        <div class="name">Carlos Zancajo</div>
+        <div class="role">Executive Director, Head of Financial Leaders Group, Singapore</div>
+        <div class="detail">Focuses on venture capital founders and growth equity GPs. Joined from the firm's IB division.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="insights" id="insights">
+  <div class="container">
+    <div class="insights-head">
+      <span class="eyebrow" style="grid-column: 1/3;">This month's thinking</span>
+      <h2 style="grid-column: 3/10;">Research written for <em>how you actually invest.</em></h2>
+      <div class="link" style="grid-column: 11/13;"><a href="#">See all research &rarr;</a></div>
+    </div>
+    <div class="insight-grid">
+      <div class="insight-card reveal">
+        <div class="i-tag">Private Markets · 8 min</div>
+        <h4>Carry taxation in APAC: what changed in 2025 and what it means for your next fund</h4>
+        <p>A jurisdiction-by-jurisdiction comparison of carried interest tax treatment in Singapore, Hong Kong, Australia, and India following recent legislative changes.</p>
+        <div class="time">Research</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="i-tag">Liquidity Planning · 6 min</div>
+        <h4>The GP commitment trap: funding Fund IV without selling Fund II</h4>
+        <p>How fund principals meet escalating GP commitments across multiple vintages without liquidating positions at a discount or drawing on personal savings.</p>
+        <div class="time">Planning</div>
+      </div>
+      <div class="insight-card reveal">
+        <div class="i-tag">Wealth Structuring · 7 min</div>
+        <h4>When your co-founder moves to Dubai: cross-border equity splits after a relocation</h4>
+        <p>The structural and tax consequences when founding GPs relocate across APAC jurisdictions mid-fund, and the planning that should happen before the move.</p>
+        <div class="time">Structuring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-grid">
+      <div class="cta-left">
+        <h2>Start with a single <em>conversation.</em></h2>
+        <p>A senior banker will review your situation, identify the two or three areas where the gap between your fund economics and your personal balance sheet is widest, and tell you what we would do about it. If there is no fit, we will say so.</p>
+        <div class="response">
+          <div class="k">Response time</div>
+          <div class="v">A member of the Asia Pacific Financial Leaders Group responds within one business day.</div>
+        </div>
+      </div>
+      <div class="cta-form">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" placeholder="">
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" placeholder="With country code">
+        </div>
+        <div class="field">
+          <label>City of residence</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field">
+          <label>Fund name (optional)</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field">
+          <label>Your role</label>
+          <select>
+            <option value="" disabled selected>Select</option>
+            <option>Founding Partner</option>
+            <option>General Partner</option>
+            <option>Managing Director</option>
+            <option>Portfolio Manager</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Fund AUM</label>
+          <select>
+            <option value="" disabled selected>Select</option>
+            <option>$500M – $1B</option>
+            <option>$1B – $5B</option>
+            <option>$5B – $10B</option>
+            <option>$10B+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>What prompted you to reach out? (optional)</label>
+          <textarea rows="2"></textarea>
+        </div>
+        <div class="submit">
+          <button class="btn">Request introduction &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="mark">J<span class="dot">.</span>P<span class="dot">.</span> Morgan</div>
+        <div class="tagline">A practice built for principals, founders, and the leaders of capital. New York · London · Singapore · Geneva · Hong Kong.</div>
+      </div>
+      <div>
+        <h5>Who we serve</h5>
+        <ul>
+          <li><a href="#">PE Principals</a></li>
+          <li><a href="#">Hedge Fund Managers</a></li>
+          <li><a href="#">VC Founders & GPs</a></li>
+          <li><a href="#">Real Estate Fund Managers</a></li>
+          <li><a href="#">Family Offices</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>What we do</h5>
+        <ul>
+          <li><a href="#">Liquidity & Lending</a></li>
+          <li><a href="#">Investment Management</a></li>
+          <li><a href="#">Wealth & Estate Planning</a></li>
+          <li><a href="#">Banking & FX</a></li>
+          <li><a href="#">GP Commitment Financing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Insights</h5>
+        <ul>
+          <li><a href="#">Principals Report</a></li>
+          <li><a href="#">Outlook</a></li>
+          <li><a href="#">Podcasts</a></li>
+        </ul>
+        <h5 style="margin-top: 28px;">Firm</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Offices</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>&copy; 2026 J.P. Morgan Private Bank. All rights reserved.</span>
+      <span>
+        <a href="#">Legal</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Accessibility</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
